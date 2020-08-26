@@ -4,6 +4,8 @@ An implementation through which the user can now stop the long-running task at a
 
 Implemented using `django-background-tasks`. Currently using it on a single thread and processing one task at a time, but the the number of threads can be increased and the job can be done asynchronously too.
 
+This implementation demonstrates uploading a csv file, but it is designed in such a way that any kind of operation can be plugged into this infra.
+
 ## Flow:
 
 - Register an Operation
