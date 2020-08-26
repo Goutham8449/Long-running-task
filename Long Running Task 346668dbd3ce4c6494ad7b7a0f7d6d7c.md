@@ -14,8 +14,13 @@ Implemented using `django-background-tasks`. Currently using it on a single thre
 
 ## Endpoints
 
-[Untitled](https://www.notion.so/1a3f1f064e66467885fef6100f64a4a0)
-
+| Endpoints    	| Type 	| Body                                 	| Response                                 	| Remarks                                                                                                                 	|
+|--------------	|------	|--------------------------------------	|------------------------------------------	|-------------------------------------------------------------------------------------------------------------------------	|
+| /register/   	| POST 	| op_type:"Upload"                     	| op_id: 1                                 	|                                                                                                                         	|
+| /upload/     	| POST 	| op_id: 1, file: sample.csv, lines: 5 	| message: upload started                  	| To resume an operation send current lines_finished                                                                      	|
+| /pause/      	| POST 	| op_id : 1                            	| success: True                            	| If operation already paused - {"message":"Upload already paused"} If op_id invalid - {"message":"Operation ID Invalid"} 	|
+| /terminate/  	| POST 	| op_id : 1                            	| success: True                            	| If op_id is invalid : {"message":"Operation ID Invalid"} If operation is not paused : {"message":"Pause the operation"} 	|
+| /get_status/ 	| POST 	| op_id : 1                            	| lines_finished: 100, is_finished : False 	| is_finished : True if the upload is completed                                                                           	|
 ### Instructions to setup on local host
 
 ```
