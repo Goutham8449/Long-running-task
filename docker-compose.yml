@@ -1,0 +1,20 @@
+version: '3'
+    
+services:
+    db:
+        image: postgres
+        environment:
+        - POSTGRES_DB=londtask
+        - POSTGRES_USER=admin
+        - POSTGRES_PASSWORD=At!@n123
+        ports:
+        - "5432:5432"
+    web:
+        build: .
+        command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000 && python manage.py process_tasks"
+        volumes:
+        - .:/long_task
+        ports:
+        - "8000:8000"
+        depends_on:
+        - db
