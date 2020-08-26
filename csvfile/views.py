@@ -101,7 +101,6 @@ def file_upload(data_set,op_id,f_id,lines):
             _.save()
             op.lines_finished +=1
             op.save()
-            time.sleep(1)
     op.is_active=False
     op.is_paused=False
     op.is_terminated=False
