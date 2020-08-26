@@ -10,7 +10,7 @@ Implemented using `django-background-tasks`. Currently using it on a single thre
 - Start the Operation
 - Pause the Operation
     - Resume the Operation OR
-    - Terminat the Operation
+    - Terminate the Operation
 
 ## Endpoints
 
